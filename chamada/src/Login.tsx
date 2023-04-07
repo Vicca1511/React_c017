@@ -1,13 +1,14 @@
 import { useState } from "react";
+import LoginForm from "./components/Molecules/Login-form/login-form";
 
-import { Login } from "./components/pages/Login/Login";
+
 
 export function Home() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <Login />
+    <div className="">
+      <LoginForm/>
     </div>
   );
 }
