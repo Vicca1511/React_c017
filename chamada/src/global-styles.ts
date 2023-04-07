@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
         flex-direction: column;
         width: 100%;
         height: var(--vh, 100vh);
-        background-color: ${(props) => props.theme.darkTheme.bg};
+        background-color: ${(props) => props.theme.darkTheme.bg };
         color: ${(props) => props.theme.darkTheme.fg};
     }
 `;

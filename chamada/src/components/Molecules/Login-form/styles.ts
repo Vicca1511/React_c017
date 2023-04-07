@@ -10,15 +10,15 @@ export const StyledLoginForm = styled.div`
   border-radius: 5px;
   border: solid 1px ${(props) => props.theme.lightTheme.bg};
   height: 600px;
+  background-color: ;
+  
 
   h2 {
     margin: 20px;
   }
 `;
 
-// export type StyledFormProps = {
-//   error: boolean;
-// };
+
 
 export const StyledForm = styled.form`
   display: flex;
@@ -26,6 +26,7 @@ export const StyledForm = styled.form`
   align-items: center;
   justify-content: center;
   width: 90%;
+  
 
   input {
     display: flex;
@@ -59,13 +60,14 @@ export const StyledForm = styled.form`
 
     button {
       display: flex;
+      -webkit-box-align: center;
       align-items: center;
       border-left: none;
-      padding: 0 5px;
-      margin: 0;
+      padding: 0px 5px;
+      margin: 0px;
       cursor: pointer;
-      border-radius: 0 5px 5px 0;
-      height: 55px;
+      border-radius: 0px 5px 5px 0px;
+      height: 31px;
       background: ${(props) => props.theme.darkTheme.fg};
     }
   }

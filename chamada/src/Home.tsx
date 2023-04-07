@@ -1,16 +1,13 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-
-import { Login } from './components/pages/Login/Login'
+import { Login } from "./components/pages/Login/Login";
 
 export function Home() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-        <Login/>
+      <Login />
     </div>
-  )
+  );
 }
-
-
