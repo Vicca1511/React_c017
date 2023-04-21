@@ -3,7 +3,7 @@ import { StyledForm, StyledLoginForm } from "./styles";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { api } from "../../../utils/api/api"
 import { useNavigate } from "react-router-dom";
-import { Loading } from "../../celules/Loading/loading";
+import { Loading } from "../../celules/loading/loading";
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -26,15 +26,18 @@ export default function LoginForm() {
     };
     const userData = await api.login(loginPayLoad);
     setLoading(false);
+    if(!userData){
+      setError(true);
+      return;
+    }
     navigate("/classroom")
     
-    console.log(userData)
   }
   return (
     <>{loading ? <Loading/> :
       <StyledLoginForm>
       <h2> Sign In </h2>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm error={error} onSubmit={handleSubmit}>
         <input placeholder="Email Adress" name="email" required/>
         <div>
           <input
