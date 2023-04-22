@@ -38,6 +38,10 @@ export default function Classroom() {
   function handleEditingMode() {
     setEditingMode(!isEditingMode);
   }
+  async function handleDeleteClassroom() {
+    await api.deleteClassroom(classroomSelectedData?.id ?? "");
+    handleControl();
+  }
 
   useEffect(() => {
     findClassrooms();
@@ -65,8 +69,30 @@ export default function Classroom() {
           />
         )}
       </div>
-
-      <AttendancesLists selectedClassroom={selectedClassroom} />
+      {selectedClassroom && (
+        <>
+          <button
+            type="button"
+            onClick={() => {
+              handleEditingMode();
+            }}
+          >
+            Edit This Classroom
+          </button>
+          <button onClick={handleDeleteClassroom}>
+            Delete this Classroom.
+          </button>
+        </>
+      )}
+      {isEditingMode ? (
+        <UpdateClassroomForm
+          handleControl={handleControl}
+          changeEditingmode={handleEditingMode}
+          classroom={classroomSelectedData ?? ({} as Classroom)}
+        />
+      ) : (
+        <CreateClassroomForm handleControl={handleControl} />
+      )}
     </div>
   );
 }

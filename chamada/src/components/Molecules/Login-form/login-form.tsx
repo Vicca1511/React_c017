@@ -35,23 +35,23 @@ export default function LoginForm() {
   }
   return (
     <>{loading ? <Loading/> :
-      <StyledLoginForm>
-      <h2> Sign In </h2>
-      <StyledForm error={error} onSubmit={handleSubmit}>
-        <input placeholder="Email Adress" name="email" required/>
-        <div>
-          <input
-            placeholder="Insert your Password"
-            type={showPassword ? "text" : "password"}
-            name="password" required
-          />
-          <button type="button" onClick={handleShowPassword}>
-            {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
-          </button>
-        </div>
-        <button type="submit"> Send </button>
-      </StyledForm>
-    </StyledLoginForm>
+      <><StyledLoginForm>
+        <h2> Sign In </h2>
+        <StyledForm error={error} onSubmit={handleSubmit}>
+          <input placeholder="Email Adress" name="email" required />
+          <div>
+            <input
+              placeholder="Insert your Password"
+              type={showPassword ? "text" : "password"}
+              name="password" required />
+            <button type="button" onClick={handleShowPassword}>
+              {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+            </button>
+          </div>
+          <button type="submit"> Send </button>
+        </StyledForm>
+      </StyledLoginForm>
+      <button onClick={() => {navigate( "/register") } }>Sign Up</button></>
 
     }
     

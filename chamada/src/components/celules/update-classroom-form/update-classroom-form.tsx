@@ -5,7 +5,7 @@ import { api } from "../../../utils/api/api";
 
 export interface UpdateClassroomFormProps {
   handleControl: () => void;
-  changeEditingmode: Dispatch<SetStateAction<boolean>>;
+  changeEditingmode: () => void;
   classroom: Classroom;
 }
 
@@ -54,7 +54,7 @@ export function UpdateClassroomForm({
       teachersIds: [classroom.teachers[0].id],
     };
     await api.updateClassroom({ ...data, id: classroom.id });
-    changeEditingmode(false);
+    changeEditingmode();
     handleControl();
   }
   return (
@@ -63,6 +63,7 @@ export function UpdateClassroomForm({
         title="Update this Classroom"
         inputs={inputsData}
         onSubmit={handleSubmit}
+        cancel={changeEditingmode}
       />
     </section>
   );
